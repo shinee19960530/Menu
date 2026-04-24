@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YuGlow — Price List</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+TC:wght@300;400&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5efe6;
+    --sand: #e8ddd0;
+    --taupe: #c4b5a5;
+    --warm-brown: #8b7355;
+    --dark-brown: #3d2b1f;
+    --accent: #a67c5b;
+    --soft-white: #faf7f3;
+    --muted: #9e8c7e;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--dark-brown);
+    font-family: 'Noto Serif TC', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    width: 100%;
+    background: var(--dark-brown);
+    padding: 60px 20px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 20% 50%, rgba(166,124,91,0.3) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 30%, rgba(196,181,165,0.15) 0%, transparent 50%);
+  }
+
+  .hero-brand {
+    position: relative;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 10vw, 90px);
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: var(--sand);
+    text-align: center;
+    line-height: 1;
+  }
+
+  .hero-brand span {
+    font-style: italic;
+    color: var(--taupe);
+  }
+
+  .hero-tagline {
+    position: relative;
+    margin-top: 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(11px, 2vw, 14px);
+    letter-spacing: 0.35em;
+    color: var(--taupe);
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  .hero-divider {
+    position: relative;
+    margin: 28px auto 0;
+    width: 60px;
+    height: 1px;
+    background: var(--taupe);
+  }
+
+  /* Tab nav */
+  .tab-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: var(--soft-white);
+    border-bottom: 1px solid var(--sand);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(61,43,31,0.06);
+  }
+
+  .tab-btn {
+    flex: 1;
+    max-width: 220px;
+    padding: 20px 24px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    position: relative;
+    transition: color 0.3s;
+    line-height: 1.4;
+  }
+
+  .tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 60%;
+    height: 2px;
+    background: var(--accent);
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .tab-btn.active {
+    color: var(--dark-brown);
+    font-weight: 400;
+  }
+
+  .tab-btn.active::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  .tab-btn:hover:not(.active) {
+    color: var(--warm-brown);
+  }
+
+  .tab-label-en {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--taupe);
+    margin-bottom: 3px;
+  }
+
+  /* Content panels */
+  .tab-panel {
+    display: none;
+    animation: fadeUp 0.45s ease forwards;
+  }
+
+  .tab-panel.active {
+    display: block;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Section wrapper */
+  .section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 50px 24px 80px;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 44px;
+  }
+
+  .section-title h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--dark-brown);
+  }
+
+  .section-title .sub {
+    display: block;
+    margin-top: 8px;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--taupe);
+  }
+
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    margin: 16px 0 0;
+  }
+
+  .ornament-line { flex: 1; max-width: 60px; height: 1px; background: var(--taupe); }
+  .ornament-dot  { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+
+  /* Table */
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 32px;
+  }
+
+  .price-table thead tr {
+    border-bottom: 1px solid var(--taupe);
+  }
+
+  .price-table th {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 400;
+    padding: 10px 12px 14px;
+    text-align: right;
+  }
+
+  .price-table th:first-child { text-align: left; }
+
+  .price-table tbody tr {
+    border-bottom: 1px solid rgba(196,181,165,0.35);
+    transition: background 0.2s;
+  }
+
+  .price-table tbody tr:hover {
+    background: rgba(232,221,208,0.35);
+  }
+
+  .price-table td {
+    padding: 16px 12px;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: var(--dark-brown);
+    text-align: right;
+  }
+
+  .price-table td:first-child {
+    text-align: left;
+    font-size: 14.5px;
+  }
+
+  .price-table .price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+  /* Notice card */
+  .notice-card {
+    background: var(--dark-brown);
+    border-radius: 2px;
+    padding: 22px 28px;
+    color: var(--sand);
+    margin-top: 36px;
+  }
+
+  .notice-card p {
+    font-size: 12.5px;
+    line-height: 1.9;
+    letter-spacing: 0.06em;
+    font-weight: 300;
+  }
+
+  .notice-card p + p {
+    margin-top: 8px;
+  }
+
+  .notice-card .notice-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--taupe);
+    margin-bottom: 12px;
+  }
+
+  /* Info box for studio side */
+  .info-box {
+    background: var(--soft-white);
+    border: 1px solid var(--sand);
+    border-radius: 2px;
+    padding: 20px 24px;
+    margin-bottom: 32px;
+  }
+
+  .info-box-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .service-tag {
+    padding: 5px 14px;
+    background: var(--sand);
+    border-radius: 20px;
+    font-size: 12.5px;
+    color: var(--dark-brown);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+
+  /* Combo table special */
+  .combo-header {
+    background: var(--sand);
+    border-radius: 2px 2px 0 0;
+    padding: 10px 12px;
+    margin-bottom: 0;
+  }
+
+  .combo-header-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--warm-brown);
+  }
+
+  .table-section-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--taupe);
+    padding: 20px 12px 8px;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* Add-on note */
+  .addon-note {
+    background: rgba(196,181,165,0.2);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--dark-brown);
+    font-weight: 300;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 32px 20px 48px;
+    background: var(--dark-brown);
+    color: var(--taupe);
+  }
+
+  footer .ig {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+  }
+
+  footer .copy {
+    margin-top: 8px;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 480px) {
+    .tab-btn { padding: 16px 12px; font-size: 12px; }
+    .section { padding: 36px 16px 60px; }
+    .price-table td, .price-table th { padding: 13px 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-brand">Yu<span>Glow</span></div>
+  <div class="hero-tagline">Beauty Studio · Price List</div>
+  <div class="hero-divider"></div>
+</header>
+
+<!-- Tab Navigation -->
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('waxing', this)">
+    <span class="tab-label-en">Waxing</span>
+    除毛價目表
+  </button>
+  <button class="tab-btn" onclick="switchTab('studio', this)">
+    <span class="tab-label-en">Studio</span>
+    美容療程
+  </button>
+</nav>
+
+<!-- ===== WAXING PANEL ===== -->
+<div id="tab-waxing" class="tab-panel active">
+  <div class="section">
+    <div class="section-title">
+      <h2>Waxing</h2>
+      <span class="sub">除毛項目價格</span>
+      <div class="ornament">
+        <div class="ornament-line"></div>
+        <div class="ornament-dot"></div>
+        <div class="ornament-line"></div>
+      </div>
+    </div>
+
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th>Girls</th>
+          <th>Boys</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>傳統比基尼</td>
+          <td class="price">$1,400</td>
+          <td class="price">$1,800</td>
+        </tr>
+        <tr>
+          <td>巴西式全除</td>
+          <td class="price">$2,000</td>
+          <td class="price">$3,000</td>
+        </tr>
+        <tr>
+          <td>手指／腳趾</td>
+          <td class="price">$200</td>
+          <td class="price">$200</td>
+        </tr>
+        <tr>
+          <td>小手臂</td>
+          <td class="price">$800</td>
+          <td class="price">$1,000</td>
+        </tr>
+        <tr>
+          <td>全手臂（含手指）</td>
+          <td class="price">$1,400</td>
+          <td class="price">$1,800</td>
+        </tr>
+        <tr>
+          <td>小腿</td>
+          <td class="price">$1,200</td>
+          <td class="price">$1,800</td>
+        </tr>
+        <tr>
+          <td>全腿（含腳趾）</td>
+          <td class="price">$2,200</td>
+          <td class="price">$3,000</td>
+        </tr>
+        <tr>
+          <td>腋下／男生鬍子</td>
+          <td class="price">$600</td>
+          <td class="price">$600</td>
+        </tr>
+        <tr>
+          <td>女生小鬍鬚／修眉</td>
+          <td class="price">$400</td>
+          <td class="price">$400</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="notice-card">
+      <div class="notice-title">優惠 &amp; 附加</div>
+      <p>✦ 鎮靜舒緩軟膜　加購價 $200</p>
+      <p>✦ 追蹤 IG＋打卡分享<br>
+         &nbsp;&nbsp;&nbsp;可折抵現金 $50 ／ 贈送鎮靜舒緩軟膜（二擇一）</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== STUDIO PANEL ===== -->
+<div id="tab-studio" class="tab-panel">
+  <div class="section">
+    <div class="section-title">
+      <h2>Studio</h2>
+      <span class="sub">美容療程價格</span>
+      <div class="ornament">
+        <div class="ornament-line"></div>
+        <div class="ornament-dot"></div>
+        <div class="ornament-line"></div>
+      </div>
+    </div>
+
+    <!-- A~E Services -->
+    <div class="info-box">
+      <div class="info-box-title">A–E 療程項目</div>
+      <div class="service-tags">
+        <span class="service-tag">A. 酥麻采耳</span>
+        <span class="service-tag">B. 療癒耳燭</span>
+        <span class="service-tag">C. 舒壓洗眼</span>
+        <span class="service-tag">D. 美顏撥筋</span>
+        <span class="service-tag">E. 顳釋重負</span>
+      </div>
+    </div>
+
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>A–E 任意搭配</th>
+          <th>單堂</th>
+          <th>雙堂 / 兩人同行</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>單項　45 mins</td>
+          <td class="price">$899</td>
+          <td class="price">—</td>
+        </tr>
+        <tr>
+          <td>兩項　75 mins</td>
+          <td class="price">$1,499</td>
+          <td class="price">$1,400</td>
+        </tr>
+        <tr>
+          <td>三項　105 mins</td>
+          <td class="price">$1,999</td>
+          <td class="price">$1,900</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="addon-note">
+      全品項皆可加價購：A～E 任選單項　$700 / 35 mins
+    </div>
+
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>其他療程項目</th>
+          <th>單堂</th>
+          <th>雙堂 / 兩人同行</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>F. Q 彈美胸</td>
+          <td class="price">$1,699</td>
+          <td class="price">$1,499</td>
+        </tr>
+        <tr>
+          <td>G. 深層抗痘保濕</td>
+          <td class="price">$1,399</td>
+          <td class="price">$1,399</td>
+        </tr>
+        <tr>
+          <td>H. 苦杏仁酸煥膚</td>
+          <td class="price">$1,599</td>
+          <td class="price">$1,500</td>
+        </tr>
+        <tr>
+          <td>I. 液態皮秒</td>
+          <td class="price">$2,199</td>
+          <td class="price">$2,100</td>
+        </tr>
+        <tr>
+          <td>LST 液態海藻針</td>
+          <td class="price">$2,799</td>
+          <td class="price">$2,699</td>
+        </tr>
+        <tr>
+          <td>M. 酵母橙酸</td>
+          <td class="price">$1,999</td>
+          <td class="price">$1,900</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="notice-card">
+      <div class="notice-title">預約須知</div>
+      <p>1. 第二堂免付清，可付定金 $500 即可</p>
+      <p>2. 雙堂 or 兩人同行優惠適用於以上所有療程項目</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="ig">@yuglow_studio &nbsp;·&nbsp; @YuGlow_waxing</div>
+  <div class="copy">YuGlow Beauty Studio · All rights reserved</div>
+</footer>
+
+<script>
+  function switchTab(name, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
